@@ -17,9 +17,9 @@ import java.util.Map;
  * This class contains methods used for operations on JSON type data
  *
  */
-public class JsonUtils {
+public class JsonUtility {
 
-	private JsonUtils() {
+	private JsonUtility() {
 
 	}
 

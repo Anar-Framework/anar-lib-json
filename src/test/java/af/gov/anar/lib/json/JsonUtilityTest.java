@@ -21,7 +21,7 @@ import static org.junit.Assert.assertThat;
 
  */
 
-public class JsonUtilTest {
+public class JsonUtilityTest {
 
 	Car car = new Car("Black", "BMW");
 	Car car2;
@@ -36,7 +36,7 @@ public class JsonUtilTest {
 
 	@Test
 	public void testJavaObjectToJsonString() throws JsonProcessingException {
-		String jsonString = JsonUtils.javaObjectToJsonString(car);
+		String jsonString = JsonUtility.javaObjectToJsonString(car);
 
 		jsonString = jsonString.replaceAll("\r", "");// \r and \n
 		assertThat(jsonString.contains("Black"), is(true));
@@ -45,7 +45,7 @@ public class JsonUtilTest {
 
 	@Test
 	public void testJsonStringToJavaObject() throws JsonParseException, JsonMappingException, IOException {
-		Car car2 = (Car) JsonUtils.jsonStringToJavaObject(Car.class, JsonUtilTestConstants.json);
+		Car car2 = (Car) JsonUtility.jsonStringToJavaObject(Car.class, JsonUtilTestConstants.json);
 		assertNotNull(car2);
 		assertThat(car2.getColor(), is("Black"));
 		assertThat(car2.getType(), is("BMW"));
@@ -65,18 +65,18 @@ public class JsonUtilTest {
 	@Test
 	public void testJsonToJacksonJsonNode() throws IOException {
 
-		assertThat(JsonUtils.jsonToJacksonJson(JsonUtilTestConstants.jsonString, "type"), is("FIAT"));
+		assertThat(JsonUtility.jsonToJacksonJson(JsonUtilTestConstants.jsonString, "type"), is("FIAT"));
 	}
 
 	@Test
 	public void testJsonStringToJavaList() throws JsonParseException, JsonMappingException, IOException {
-		List<Object> listElements = JsonUtils.jsonStringToJavaList(JsonUtilTestConstants.jsonCarArray);
+		List<Object> listElements = JsonUtility.jsonStringToJavaList(JsonUtilTestConstants.jsonCarArray);
 		assertThat(listElements.toString(), is("[{color=Black, type=BMW}, {color=Red, type=FIAT}]"));
 	}
 
 	@Test
 	public void testJsonStringToJavaMap() throws JsonParseException, JsonMappingException, IOException {
-		Map<String, Object> mapElements = JsonUtils.jsonStringToJavaMap(JsonUtilTestConstants.jsonString);
+		Map<String, Object> mapElements = JsonUtility.jsonStringToJavaMap(JsonUtilTestConstants.jsonString);
 		assertThat(mapElements.toString(), is("{color=Black, type=FIAT}"));
 	}
 
@@ -91,14 +91,14 @@ public class JsonUtilTest {
 	public void testjsonStringtoJavaObjectWithParseException()
 			throws JsonParseException, JsonMappingException, IOException {
 
-		JsonUtils.jsonStringToJavaObject(Car.class, JsonUtilTestConstants.jsonParserError);
+		JsonUtility.jsonStringToJavaObject(Car.class, JsonUtilTestConstants.jsonParserError);
 	}
 
 	@Test(expected = JsonMappingException.class)
 	public void testjsonStringtoJavaObjectWithMappingException()
 			throws JsonParseException, JsonMappingException, IOException {
 
-		JsonUtils.jsonStringToJavaObject(Car.class, JsonUtilTestConstants.jsonCarArray2);
+		JsonUtility.jsonStringToJavaObject(Car.class, JsonUtilTestConstants.jsonCarArray2);
 	}
 
 	/*@Test(expected = JsonParseException.class)
@@ -128,35 +128,35 @@ public class JsonUtilTest {
 
 	@Test(expected = IOException.class)
 	public void testJsonToJacksonJsonWithIOException() throws IOException {
-		JsonUtils.jsonToJacksonJson(JsonUtilTestConstants.jsonCarArray2, "");
+		JsonUtility.jsonToJacksonJson(JsonUtilTestConstants.jsonCarArray2, "");
 	}
 
 	@Test(expected = JsonParseException.class)
 	public void testjsonStringToJavaListWithParseException()
 			throws JsonParseException, JsonMappingException, IOException {
 
-		JsonUtils.jsonStringToJavaList(JsonUtilTestConstants.jsonParserError2);
+		JsonUtility.jsonStringToJavaList(JsonUtilTestConstants.jsonParserError2);
 	}
 
 	@Test(expected = JsonMappingException.class)
 	public void testjsonStringToJavaListWithMappingException()
 			throws JsonParseException, JsonMappingException, IOException {
 
-		JsonUtils.jsonStringToJavaList(JsonUtilTestConstants.jsonCarArray2);
+		JsonUtility.jsonStringToJavaList(JsonUtilTestConstants.jsonCarArray2);
 	}
 
 	@Test(expected = JsonParseException.class)
 	public void testjsonStringToJavaMapWithParseException()
 			throws JsonParseException, JsonMappingException, IOException {
 
-		JsonUtils.jsonStringToJavaMap(JsonUtilTestConstants.jsonParserError);
+		JsonUtility.jsonStringToJavaMap(JsonUtilTestConstants.jsonParserError);
 	}
 
 	@Test(expected = JsonMappingException.class)
 	public void testjsonStringToJavaMapWithMappingException()
 			throws JsonParseException, JsonMappingException, IOException {
 
-		JsonUtils.jsonStringToJavaMap(JsonUtilTestConstants.jsonCarArray2);
+		JsonUtility.jsonStringToJavaMap(JsonUtilTestConstants.jsonCarArray2);
 	}
 
 }
