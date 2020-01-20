@@ -1,6 +1,6 @@
 package af.gov.anar.lib.json;
 
-import af.gov.anar.lib.json.exception.IOException;
+import af.gov.anar.lang.infrastructure.exception.common.IOException;
 import af.gov.anar.lib.json.exception.JsonMappingException;
 import af.gov.anar.lib.json.exception.JsonParseException;
 import af.gov.anar.lib.json.exception.JsonProcessingException;
