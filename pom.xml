@@ -8,7 +8,7 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>af.gov.anar.lib.json</groupId>
+	<groupId>af.gov.anar.lib</groupId>
 	<artifactId>anar-lib-json</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>anar-lib-json</name>
