@@ -4,7 +4,7 @@
 
 ```
 		<dependency>
-	               <groupId>af.gov.anar.lib.json</groupId>
+	               <groupId>af.gov.anar.lib</groupId>
 	                <artifactId>anar-lib-json</artifactId>
                         <version>${project.version}</version>
 		</dependency>
