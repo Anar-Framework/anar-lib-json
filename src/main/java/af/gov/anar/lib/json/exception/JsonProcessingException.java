@@ -1,7 +1,7 @@
 package af.gov.anar.lib.json.exception;
 
 
-import af.gov.anar.lang.infrastructure.exception.common.BaseCheckedException;
+import af.gov.anar.core.infrastructure.exception.common.BaseCheckedException;
 
 public class JsonProcessingException extends BaseCheckedException {
 	private static final long serialVersionUID = 7784354823823721387L;
